@@ -16,6 +16,12 @@ SETP5. ADD TILELAYER upon map.
 ===============================================
 02_scale_adding_on_map
 ===============================================
+A simple scale control that shows the scale of the current center of screen in metric (m/km) 
+and imperial (mi/ft) systems.
+
+Syntax: L.control.scale().addTo(map);
+
+STEP1: L.control.scale().addTo(map);
 
 ===============================================
 03_TileLayer_Switcher_switch_baseLayers
@@ -27,6 +33,7 @@ STEP2. Store all Separate variables in a single javascript object.
 STEP3. Now Add your default TileLayer into MapInitializtion .
 STEP4. Using Leaflet control.layers() call javascript object in layers() Method.
 
+Syntax: L.control.layers(baseLayers).addTo(map);
 
 
 
