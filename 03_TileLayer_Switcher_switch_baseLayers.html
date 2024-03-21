@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switcher TileLayer</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        #my_map{
+            height: 650px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="my_map"></div>
+    <script>
+        
+        // ********* STEP1: Add all TileLayers png link with attribution in separate variables.
+        // OPEN STREET MAP
+        var openstreetmap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        })
+
+        // GOOGLE STREET MAP
+        var googleStreetMap = googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        });
+
+        // Google satellite,
+        var googleSat = L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        });
+
+        // ********* END STEP1 **************//
+
+       
+        // ****** STEP 2 ************//
+        // Store all Separate variables in a single javascript object.
+        var baseMaps = {
+            'OSM': openstreetmap,
+            'Google Street Map': googleStreetMap,
+            'Google Satellite Map': googleSat,
+        }
+        // ***** END STEP2 ***********//
+
+        // ******* STEP3 Now Add your default TileLayer into MapInitializtion .
+        // Map initilize
+        var map = L.map('my_map',{center:[20.5937, 78.9629], zoom:5,minZoom:3, layers:[openstreetmap], crs: L.CRS.EPSG3857});
+        // ******* END STEP3 **********************//
+
+        // ******* STEP4:Using Leaflet control.layers() call javascript object in layers() Method.
+        L.control.layers(baseMaps).addTo(map)
+        // ******* END STEP4 ********************** //
+    </script>
+</body>
+
+</html>

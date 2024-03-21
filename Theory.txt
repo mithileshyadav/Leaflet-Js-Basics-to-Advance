@@ -1,0 +1,32 @@
+01_introduction_installation_leafletjs
+========================================================
+1. Leaflet js is an open source javascript library.
+2. It is opensource [Free] 
+3. 39 kb of js
+4. Lightweight
+5. Easy to use in Web GIS based Application
+6. It provides all basics GIS functionalities.
+
+STEP1. PASTE CND LINK OF Leaflet JS into your html code.
+STEP2. FOR MAP INITIALIZTION CREATE A SEPARATE DIV
+STEP3. IMPORTANT ADD STYLE OF MAP DIV LIKE HIGHT,
+STEP4. set its view geographical coordinates[lat, long] and a zoom level
+SETP5. ADD TILELAYER upon map.
+
+===============================================
+02_scale_adding_on_map
+===============================================
+
+===============================================
+03_TileLayer_Switcher_switch_baseLayers
+===============================================
+The layers control gives users the ability to switch between different base layers
+
+STEP1. Add all TileLayers png link with attribution in separate variables.
+STEP2. Store all Separate variables in a single javascript object.
+STEP3. Now Add your default TileLayer into MapInitializtion .
+STEP4. Using Leaflet control.layers() call javascript object in layers() Method.
+
+
+
+
